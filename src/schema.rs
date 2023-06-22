@@ -1,6 +1,16 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
+    role (id) {
+        id -> Uuid,
+        name -> Text,
+        guard_name -> Text,
+        created_at -> Timestamp,
+        updated_at -> Nullable<Timestamp>,
+    }
+}
+
+diesel::table! {
     user (id) {
         id -> Uuid,
         email -> Text,
@@ -9,3 +19,8 @@ diesel::table! {
         updated_at -> Nullable<Timestamp>,
     }
 }
+
+diesel::allow_tables_to_appear_in_same_query!(
+    role,
+    user,
+);

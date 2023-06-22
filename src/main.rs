@@ -14,6 +14,7 @@ mod api_error;
 mod db;
 mod schema;
 mod user;
+mod role;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
@@ -26,6 +27,7 @@ async fn main() -> std::io::Result<()> {
     let mut server = HttpServer::new(|| 
         App::new()
             .configure(user::init_routes)
+            .configure(role::init_routes)
     );
 
     server = match listenfd.take_tcp_listener(0)? {
