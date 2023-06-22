@@ -1,41 +1,36 @@
-use actix_web::middleware::Logger;
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
-use serde::Serialize;
+#[macro_use]
+extern crate log;
+
+use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use dotenv::dotenv;
+use listenfd::ListenFd;
+use std::env;
 
 #[get("/")]
-async fn hello() -> impl Responder {
+async fn index() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
 
-#[post("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    HttpResponse::Ok().body(req_body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
-}
-
-async fn test_log() -> impl Responder {
-    //env_logger::init();
-    //info!("starting up");
-    HttpResponse::Ok().body("Test log!")
-}
-
-#[actix_web::main]
+#[actix_rt::main]
 async fn main() -> std::io::Result<()> {
-    std::env::set_var("RUST_LOG", "debug");
-    std::env::set_var("RUST_BACKTRACE", "1");
+    dotenv().ok();
     env_logger::init();
 
-    HttpServer::new(|| {
+    let mut listenfd = ListenFd::from_env();
+    let mut server = HttpServer::new(||
         App::new()
-            .service(hello)
-            .service(echo)
-            .route("/hey", web::get().to(manual_hello))
-            .route("/test-log", web::get().to(test_log))
-    })
-    .bind(("127.0.0.1", 8686))?
-    .run()
-    .await
+            .service(index)
+    );
+
+    server = match listenfd.take_tcp_listener(0)? {
+        Some(listener) => server.listen(listener)?,
+        None => {
+            let host = env::var("HOST").expect("Host not set");
+            let port = env::var("PORT").expect("Port not set");
+            server.bind(format!("{}:{}", host, port))?
+        }
+    };
+
+    info!("Starting server");
+    server.run().await
 }
