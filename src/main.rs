@@ -1,15 +1,12 @@
 #[macro_use]
 extern crate log;
 
-use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use actix_web::{App, HttpServer};
 use dotenv::dotenv;
 use listenfd::ListenFd;
 use std::env;
 
-#[get("/")]
-async fn index() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
+mod user;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
@@ -17,9 +14,9 @@ async fn main() -> std::io::Result<()> {
     env_logger::init();
 
     let mut listenfd = ListenFd::from_env();
-    let mut server = HttpServer::new(||
+    let mut server = HttpServer::new(|| 
         App::new()
-            .service(index)
+            .configure(user::init_routes)
     );
 
     server = match listenfd.take_tcp_listener(0)? {
