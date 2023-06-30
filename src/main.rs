@@ -15,6 +15,7 @@ mod db;
 mod schema;
 mod user;
 mod role;
+mod permission;
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
@@ -28,6 +29,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .configure(user::init_routes)
             .configure(role::init_routes)
+            .configure(permission::init_routes)
     );
 
     server = match listenfd.take_tcp_listener(0)? {

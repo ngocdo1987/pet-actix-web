@@ -7,17 +7,34 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-actix-web = "3.0"
+actix-web = "2.0"
 actix-rt = "1.0"
+actix-cors = "0.2.0"
+argonautica = { version = "0.2", features = ["simd"] }
+async-trait = "0.1.30"
 chrono = { version = "0.4", features = ["serde"] }
+config = "0.10.1"
+dataloader = { version = "0.11", default-features = false, features = ["runtime-tokio"]}
+deadpool-postgres = "0.5.5"
 dotenv = "0.11"
 diesel = { version = "1.4", features = ["postgres", "r2d2", "uuid", "chrono"] }
 diesel_migrations = "1.4"
 env_logger = "0.6"
+futures = { version = "0.3.4", features = ["compat"] }
+juniper = { git = "https://github.com/graphql-rust/juniper.git" }
 lazy_static = "1.4"
 listenfd = "0.3"
 log = "0.4"
 serde = "1.0"
 serde_json = "1.0"
+slog = "2.5.2"
+slog-term = "2.5.0"
+slog-async = "2.4.0"
+slog-envlogger = "2.2.0"
+slog-scope = "4.3.0"
+slog-stdlog = "4.0.0"
+tokio-pg-mapper = "0.1.5"
+tokio-pg-mapper-derive = "0.1.5"
+tokio-postgres = { version = "0.5.3", features = ["with-chrono-0_4", "with-uuid-0_8"] }
 r2d2 = "0.8"
 uuid = { version = "0.6", features = ["serde", "v4"] }
