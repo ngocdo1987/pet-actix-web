@@ -1,0 +1,169 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Pet Actix Web 2.0 (Diesel)",
+    "dateExported": "2023-07-02T11:00:21.607Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7c685d96-53eb-4c07-9aa1-597fb69e74a3",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Get all users",
+            "url": "http://localhost:8686/users",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-22T16:22:28.009Z",
+            "modified": "2023-06-22T16:22:28.009Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "432ac43a-c9ba-4e4e-9761-504c59ea9c6b",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Get all roles",
+            "url": "http://localhost:8686/roles",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-06-22T17:18:28.560Z",
+            "modified": "2023-06-22T17:18:48.477Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7d05471f-b63c-4883-9eec-adf864a5b318",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Get all permissions",
+            "url": "http://localhost:8686/permissions",
+            "method": "GET",
+            "sortNum": 17500,
+            "created": "2023-06-30T16:42:54.187Z",
+            "modified": "2023-06-30T16:43:11.575Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fe02478b-7064-473f-a155-39a5dca53b99",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Create new user",
+            "url": "http://localhost:8686/users",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-22T16:25:24.625Z",
+            "modified": "2023-06-22T16:33:35.171Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"ngocdo111@maruweb.vn\",\n  \"password\": \"123456456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c118427-4a73-4377-9d3a-d541b6355feb",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Create new role",
+            "url": "http://localhost:8686/roles",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-06-22T17:19:13.705Z",
+            "modified": "2023-06-22T17:19:53.360Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"admin\",\n  \"guard_name\": \"admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5c534f24-c577-4a25-ae47-8abea6e50204",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Create new permission",
+            "url": "http://localhost:8686/permissions",
+            "method": "POST",
+            "sortNum": 27500,
+            "created": "2023-06-30T16:41:15.756Z",
+            "modified": "2023-06-30T16:41:56.445Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"permission 1\",\n  \"guard_name\": \"admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ef6d0216-0f9a-4d23-8032-645af9367c76",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Get user by id",
+            "url": "http://localhost:8686/users/c2912407-8ac8-40d1-8135-b922f8f65264",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-22T16:27:18.429Z",
+            "modified": "2023-06-22T16:27:18.429Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0f56ff1f-63e6-4ed6-8a8f-ab291793ad2e",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Get role by id",
+            "url": "http://localhost:8686/roles/c2912407-8ac8-40d1-8135-b922f8f65264",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2023-06-22T17:20:18.941Z",
+            "modified": "2023-06-22T17:20:35.191Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bf344585-dca8-4987-b494-eb1c645f0514",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Update user by id",
+            "url": "http://localhost:8686/users/c2912407-8ac8-40d1-8135-b922f8f65264",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-06-22T16:31:26.359Z",
+            "modified": "2023-06-22T16:31:26.359Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"ngocdo@maruweb.vn\",\n  \"password\": \"changed_password\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "54ce8091-dfa3-4565-bcbb-66951b0979c7",
+            "colId": "4f3c05fa-2d64-408e-a9b0-fcccf1c761e7",
+            "containerId": "",
+            "name": "Delete user by id",
+            "url": "http://localhost:8686/users/1d8e204f-6b2b-41a1-af42-8ac87922528b",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-06-22T16:33:10.079Z",
+            "modified": "2023-06-22T16:34:09.774Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
